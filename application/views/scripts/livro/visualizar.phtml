@@ -1,0 +1,25 @@
+<h2>Visualizar Livro</h2>
+<p>
+	<a href="<?php echo $this->url(array('controller' => 'livro', 'action' => 'index'), '', true); ?>" class="button_top">&laquo; Voltar</a>
+</p>
+<p>
+	<b>ISBN: </b> <?php echo $this->livro->getIsbn(); ?>
+</p>
+<p>
+	<b>T&iacute;tulo: </b> <?php echo $this->livro->getTitulo(); ?>
+</p>
+<p>
+	<b>Editora: </b> <?php echo $this->livro->getEditora()->getNome(); ?>
+</p>
+<p>
+	<b>Autor: </b> <?php echo $this->livro->getAutor()->getNome(); ?>
+</p>
+<p>
+	<b>P&aacute;ginas: </b> <?php echo $this->livro->getPaginas(); ?>
+</p>
+<p>
+	<b>Ano: </b> <?php echo $this->livro->getAno(); ?>
+</p>
+<p>
+	<b>Resenha: </b> <?php echo $this->livro->getResenha(); ?>
+</p>

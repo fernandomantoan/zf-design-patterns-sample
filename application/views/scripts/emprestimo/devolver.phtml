@@ -1,0 +1,32 @@
+<h2>Devolver Item</h2>
+<p>
+	<a href="<?php echo $this->url(array('controller' => 'emprestimo', 'action' => 'index'), '', true); ?>" class="button_top">&laquo; Voltar</a>
+</p>
+<p>
+	<b>Livro:</b> <?php echo $this->item->getLivro()->getTitulo(); ?>
+</p>
+<p>
+	<b>Data do Empr&eacute;stimo:</b> <?php echo $this->item->getEmprestimo()->getDataEmprestimo(); ?>
+</p>
+<p>
+	<b>Empr&eacute;stimo realizado por:</b> <?php echo $this->item->getEmprestimo()->getMembro()->getNome(); ?>
+</p>
+<p>
+	<b>Valor do Juros cobrado por cada dia de atraso:</b> R$<?php echo $this->item->getEmprestimo()->getValorJuros(); ?>
+</p>
+<p>
+	<b>Data Prevista para a Devolu&ccedil;&atilde;o:</b> <?php echo $this->item->getDataPrevista(); ?>
+</p>
+<?php echo $this->form; ?>
+<div id="carregando" style="display: none; float: left; margin-top: 120px;">
+	<img src="<?php echo $this->baseUrl(); ?>/img/loading.gif" alt="" />
+</div>
+<script type="text/javascript">
+	$(document).ready(
+		function()
+		{
+			var input_data = $('#data_devolvida');
+			input_data.keyup(function() { processa_devolucao('<?php echo $this->url(array('controller' => 'emprestimo', 'action' => 'calculajuros'), null, true); ?>') } );
+		}
+	);
+</script>

@@ -1,0 +1,30 @@
+<h2>Listando Usu&aacute;rios</h2>
+<p>
+	<a href="<?php echo $this->url(array('action' => 'adicionar')); ?>" class="button_top">Novo Usu&aacute;rio</a>
+</p>
+<table class="grid">
+	<thead>
+		<tr>
+			<th scope="col">Login</th>
+			<th scope="col">Nome Real</th>
+			<th scope="col">Editar</th>
+			<th scope="col">Excluir</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if ( sizeof($this->usuarios) == 0 ): ?>
+		<tr>
+			<td colspan="4">Nenhum registro encontrado.</td>
+		</tr>
+	<?php else: ?>
+	<?php foreach ($this->usuarios as $usuario): ?>
+		<tr>
+			<td><a href="<?php echo $this->url(array('action' => 'visualizar', 'id' => $usuario->getId())); ?>"><?php echo $usuario->getLogin(); ?></a></td>
+			<td><a href="<?php echo $this->url(array('action' => 'visualizar', 'id' => $usuario->getId())); ?>"><?php echo $usuario->getNomeReal(); ?></a></td>
+			<td><a href="<?php echo $this->url(array('action' => 'editar', 'id' => $usuario->getId())); ?>">Editar</a></td>
+			<td><a href="<?php echo $this->url(array('action' => 'deletar', 'id' => $usuario->getId())); ?>" onclick="return deletar(this.href);">Excluir</a></td>
+		</tr>
+	<?php endforeach; ?>
+	<?php endif; ?>
+	</tbody>
+</table>

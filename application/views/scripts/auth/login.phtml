@@ -1,0 +1,20 @@
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<?php echo $this->headMeta(); ?>
+		<title>Login | Biblioteca</title>
+		<?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/login.css'); ?>
+	</head>
+	<body>
+		<div id="wrapper">
+			<?php $messages = $this->flashMessenger(); ?>
+			<h2>Login</h2>
+			<?php if (sizeof($messages) > 0): ?>
+			<div id="message" style="color: #f00;">
+				<?php echo $messages[0]; ?>
+			</div>
+			<?php endif; ?>
+			<?php echo $this->form; ?>
+		</div>
+	</body>
+</html>

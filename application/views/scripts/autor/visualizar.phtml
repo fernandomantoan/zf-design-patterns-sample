@@ -1,0 +1,13 @@
+<h2>Visualizar Autor</h2>
+<p>
+	<a href="<?php echo $this->url(array('controller' => 'autor', 'action' => 'index'), '', true); ?>" class="button_top">&laquo; Voltar</a>
+</p>
+<p>
+	<b>C&oacute;digo: </b> <?php echo $this->autor->getId(); ?>
+</p>
+<p>
+	<b>Nome: </b> <?php echo $this->autor->getNome(); ?>
+</p>
+<p>
+	<b>Biografia: </b> <?php echo $this->autor->getBiografia(); ?>
+</p>

@@ -1,0 +1,13 @@
+<h2>Visualizar Usu&aacute;rio</h2>
+<p>
+	<a href="<?php echo $this->url(array('controller' => 'usuario', 'action' => 'index'), '', true); ?>" class="button_top">&laquo; Voltar</a>
+</p>
+<p>
+	<b>C&oacute;digo: </b> <?php echo $this->usuario->getId(); ?>
+</p>
+<p>
+	<b>Login: </b> <?php echo $this->usuario->getLogin(); ?>
+</p>
+<p>
+	<b>Nome Real: </b> <?php echo $this->usuario->getNomeReal(); ?>
+</p>

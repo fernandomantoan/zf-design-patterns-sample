@@ -1,0 +1,16 @@
+<h2>Visualizar Membro</h2>
+<p>
+	<a href="<?php echo $this->url(array('controller' => 'membro', 'action' => 'index'), '', true); ?>" class="button_top">&laquo; Voltar</a>
+</p>
+<p>
+	<b>C&oacute;digo: </b> <?php echo $this->membro->getId(); ?>
+</p>
+<p>
+	<b>Nome: </b> <?php echo $this->membro->getNome(); ?>
+</p>
+<p>
+	<b>Endere&ccedil;o: </b> <?php echo $this->membro->getEndereco(); ?>
+</p>
+<p>
+	<b>Telefone: </b> <?php echo $this->membro->getTelefone(); ?>
+</p>

@@ -1,0 +1,54 @@
+<h2>Itens do Empr&eacute;stimo</h2>
+<p>
+	<a href="<?php echo $this->url(array('controller' => 'emprestimo', 'action' => 'index'), '', true); ?>" class="button_top">&laquo; Voltar</a>
+</p>
+<p>
+	<b>Membro:</b> <?php echo $this->emprestimo->getMembro()->getNome(); ?>
+</p>
+<p>
+	<b>Data do Empr&eacute;stimo:</b> <?php echo $this->emprestimo->getDataEmprestimo(); ?>
+</p>
+<p>
+	<b>Valor do Juros:</b> R$<?php echo $this->emprestimo->getValorJuros(); ?>
+</p>
+<p class="margin_top_25">
+	<a href="#" class="button_top" onclick="exibe_div('form_novo_item', this);">+ ADICIONAR ITEM</a>
+</p>
+<div id="form_novo_item" style="display: none;">
+	<?php echo $this->form; ?>
+</div>
+<table class="grid">
+	<thead>
+		<tr>
+			<th scope="col" style="width: 20%;">Livro</th>
+			<th scope="col" class="alin_centro">Data Prevista de Devolu&ccedil;&atilde;o</th>
+			<th scope="col" class="alin_centro">Data de Devolu&ccedil;&atilde;o</th>
+			<th scope="col">Valor Pago</th>
+			<th scope="col">Devolver</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php if ( sizeof($this->itens) == 0 ): ?>
+		<tr>
+			<td colspan="5">Nenhum item cadastrado.</td>
+		</tr>
+		<?php else: ?>
+		<?php foreach ( $this->itens as $item ): ?>
+		<tr>
+			<td><?php echo $item->getLivro()->getTitulo(); ?></td>
+			<td class="alin_centro"><?php echo $item->getDataPrevista(); ?></td>
+			<td class="alin_centro"><?php echo is_null($item->getDataDevolvida()) ? 'Item não devolvido' : $item->getDataDevolvida(); ?></td>
+			<td>R$<?php echo $item->getValorPago(); ?></td>
+			<td>
+				<?php if ( is_null($item->getDataDevolvida()) ): ?>
+				<a href="<?php echo $this->url(array('controller' => 'emprestimo', 'action' => 'devolver', 'id' => $item->getId())); ?>">Devolver</a>
+				<?php else: ?>
+				J&aacute; Devolvido
+				<?php endif; ?>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+		<?php endif; ?>
+	</tbody>
+</table>
+<br />

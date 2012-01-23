@@ -1,0 +1,30 @@
+<h2>Listando Empr&eacute;stimos</h2>
+<p>
+	<a href="<?php echo $this->url(array('action' => 'adicionar')); ?>" class="button_top">Novo Empr&eacute;stimo</a>
+</p>
+<table class="grid">
+	<thead>
+		<tr>
+			<th scope="col">Membro</th>
+			<th scope="col">Data do Empr&eacute;stimo</th>
+			<th scope="col">Valor do Juros</th>
+			<th scope="col">Excluir</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if ( sizeof($this->emprestimos) == 0 ): ?>
+		<tr>
+			<td colspan="4">Nenhum registro encontrado.</td>
+		</tr>
+	<?php else: ?>
+	<?php foreach ($this->emprestimos as $emprestimo): ?>
+		<tr>
+			<td><a href="<?php echo $this->url(array('action' => 'adicionaritens', 'id' => $emprestimo->getId())); ?>"><?php echo $emprestimo->getMembro()->getNome(); ?></a></td>
+			<td><?php echo $emprestimo->getDataEmprestimo(); ?></td>
+			<td>R$<?php echo $emprestimo->getValorJuros(); ?></td>
+			<td><a href="<?php echo $this->url(array('action' => 'deletar', 'id' => $emprestimo->getId())); ?>" onclick="return deletar(this.href);">Excluir</a></td>
+		</tr>
+	<?php endforeach; ?>
+	<?php endif; ?>
+	</tbody>
+</table>

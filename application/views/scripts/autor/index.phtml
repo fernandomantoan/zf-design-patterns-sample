@@ -1,0 +1,30 @@
+<h2>Listando Autores</h2>
+<p>
+	<a href="<?php echo $this->url(array('action' => 'adicionar')); ?>" class="button_top">Novo Autor</a>
+</p>
+<table class="grid">
+	<thead>
+		<tr>
+			<th scope="col">Nome</th>
+			<th scope="col">Biografia</th>
+			<th scope="col">Editar</th>
+			<th scope="col">Excluir</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if ( sizeof($this->autores) == 0 ): ?>
+		<tr>
+			<td colspan="4">Nenhum registro encontrado.</td>
+		</tr>
+	<?php else: ?>
+	<?php foreach ($this->autores as $autor): ?>
+		<tr>
+			<td><a href="<?php echo $this->url(array('action' => 'visualizar', 'id' => $autor->getId())); ?>"><?php echo $autor->getNome(); ?></a></td>
+			<td><?php echo (strlen($autor->getBiografia()) > 60) ? substr($autor->getBiografia(), 0, 60) . '...' : $autor->getBiografia(); ?></td>
+			<td><a href="<?php echo $this->url(array('action' => 'editar', 'id' => $autor->getId())); ?>">Editar</a></td>
+			<td><a href="<?php echo $this->url(array('action' => 'deletar', 'id' => $autor->getId())); ?>" onclick="return deletar(this.href);">Excluir</a></td>
+		</tr>
+	<?php endforeach; ?>
+	<?php endif; ?>
+	</tbody>
+</table>

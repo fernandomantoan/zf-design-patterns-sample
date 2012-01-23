@@ -1,0 +1,61 @@
+BODY {
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+DIV#wrapper {
+	background: #eee;
+	border: 1px #ccc solid;
+	font-size: 12px;
+	left: 50%;
+	margin-left: -150px;
+	margin-top: 50px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	position: relative;
+	width: 270px;
+}
+DIV#wrapper H2 {
+	color: #aaa;
+	font-weight: normal;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+DIV#message {
+	margin: 20px 0 0 0;
+}
+DIV#wrapper DL {
+	margin: 40px 0 0 0;
+	padding: 0;
+}
+DIV#wrapper DL DT {
+	margin: 0;
+}
+DIV#wrapper DL DD {
+	margin: 5px 0 5px 0;
+	padding: 0;
+}
+DIV#wrapper DL DT#id-label {
+	display: none;
+}
+DIV#wrapper FORM INPUT[type="submit"] {
+	background: #f70;
+	border: none;
+	color: #fff;
+	font-size: 12px;
+	padding: 8px;
+	text-transform: uppercase;
+}
+DIV#wrapper FORM INPUT[type="text"], DIV#wrapper FORM INPUT[type="password"] {
+	border: 1px #ddd solid;
+	color: #666;
+	font-size: 12px;
+	padding: 3px;
+	width: 210px;
+}
+UL.errors {
+	color: #f00;
+	list-style: none;
+	margin: 5px 0 10px 0;
+	padding: 0;
+}

@@ -1,0 +1,16 @@
+<h2>Visualizar Editora</h2>
+<p>
+	<a href="<?php echo $this->url(array('controller' => 'editora', 'action' => 'index'), '', true); ?>" class="button_top">&laquo; Voltar</a>
+</p>
+<p>
+	<b>C&oacute;digo: </b> <?php echo $this->editora->getId(); ?>
+</p>
+<p>
+	<b>Nome: </b> <?php echo $this->editora->getNome(); ?>
+</p>
+<p>
+	<b>Localiza&ccedil;&atilde;o: </b> <?php echo $this->editora->getLocalizacao(); ?>
+</p>
+<p>
+	<b>Website: </b> <?php echo $this->editora->getWebsite(); ?>
+</p>

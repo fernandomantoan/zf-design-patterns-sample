@@ -1,0 +1,171 @@
+BODY {
+	margin: 0;
+	padding: 0;
+}
+/**
+ * Topo
+ */
+DIV#header {
+	background: #4d4d4d;
+	clear: both;
+	float: left;
+	margin: 0 0 30px 0;
+	padding: 0 1% 0 1%;
+	width: 98%;
+}
+DIV#header H1 {
+	background: url("../img/logo_books.jpg") no-repeat top left;
+	color: #fff;
+	float: left;
+	height: 50px;
+	margin: 20px 0 10px 0;
+	padding-left: 50px;
+}
+DIV.profile {
+	color: #fff;
+	float: right;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 30px 20px 0 0;
+}
+DIV.profile A {
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+/**
+ * Menu
+ */
+DIV#menu {
+	float: left;
+	font-family: Arial, Verdana, Tahoma, sans-serif;
+	margin-left: 1%;
+	width: 15%;
+}
+DIV#menu UL {
+	border-left: 1px #ccc solid;
+	border-right: 1px #ccc solid;
+	border-top: 1px #ccc solid;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+DIV#menu UL LI A {
+	border-bottom: 1px #ccc solid;
+	color: #000;
+	display: block;
+	font-size: 14px;
+	padding: 15px 3px 15px 15px;
+	text-decoration: none;
+}
+DIV#menu UL LI A:HOVER {
+	background: #eee;
+}
+/**
+ * Conteúdo
+ */
+DIV#content {
+	float: left;
+	font-family: Arial, Verdana, Tahoma, sans-serif;
+	font-size: 12px;
+	margin-left: 3%;
+	width: 80%;
+}
+DIV#message {
+	color: darkgreen;
+	font-size: 12px;
+	margin: 10px 0;
+}
+DIV#content H2 {
+	color: #ff5400;
+	font-size: 18px;
+	margin: 0 0 35px 0;
+}
+/**
+ * Botões
+ */
+H2 + P {
+	margin-bottom: 35px;
+}
+A.button_top {
+	background: #666;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+A.button_top:HOVER {
+	text-decoration: underline;
+}
+/**
+ * Tabelas
+ */
+TABLE.grid {
+	border: 1px #aaa solid;
+	border-collapse: collapse;
+	font-size: 12px;
+	margin-top: 20px;
+	width: 100%;
+}
+TABLE.grid A {
+	color: #000;
+	font-weight: bold;
+}
+TABLE.grid THEAD {
+	background: #eee;
+}
+TABLE.grid THEAD TH {
+	text-align: left;
+	padding: 10px;
+}
+TABLE.grid TBODY TD {
+	font-size: 11px;
+	padding: 10px;
+}
+/**
+ * Formulários
+ */
+#devolveritem {
+	float: left;
+}
+DL.zend_form {
+	margin: 0;
+	padding: 0;
+}
+DL.zend_form DT {
+	margin: 0;
+}
+DL.zend_form DD {
+	margin: 5px 0 5px 0;
+	padding: 0;
+}
+DL.zend_form TEXTAREA {
+	height: 200px;
+	width: 350px;
+}
+/**
+ * Erros
+ */
+UL.errors {
+	color: #f00;
+	list-style: disc;
+	margin: 5px 0 10px 0;
+	padding: 0 0 0 15px;
+}
+/**
+ * Estilos Não-Específicos
+ */
+.alin_esquerda {
+	text-align: left !important;
+}
+.alin_centro {
+	text-align: center !important;
+}
+.alin_direita {
+	text-align: right !important;
+}
+.margin_top_25 {
+	margin-top: 25px;
+}

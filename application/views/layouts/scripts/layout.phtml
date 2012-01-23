@@ -1,0 +1,37 @@
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<?php echo $this->headMeta(); ?>
+		<?php echo $this->headTitle(); ?>
+		<?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/estilos.css'); ?>
+		<?php echo $this->headScript()->appendFile($this->baseUrl() . '/js/jquery.js'); ?>
+		<?php echo $this->headScript()->appendFile($this->baseUrl() . '/js/funcoes.js'); ?>
+	</head>
+	<body>
+		<div id="wrapper"><!-- engloba o site -->
+			<div id="header"><!-- topo -->
+				<h1>biblioteca</h1>
+				<?php echo $this->loggedUser(); ?>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="<?php echo $this->url(array('controller' => 'editora', 'action' => 'index'), '', true); ?>">Editoras</a></li>
+					<li><a href="<?php echo $this->url(array('controller' => 'autor', 'action' => 'index'), '', true); ?>">Autores</a></li>
+					<li><a href="<?php echo $this->url(array('controller' => 'livro', 'action' => 'index'), '', true); ?>">Livros</a></li>
+					<li><a href="<?php echo $this->url(array('controller' => 'membro', 'action' => 'index'), '', true); ?>">Membros</a></li>
+					<li><a href="<?php echo $this->url(array('controller' => 'emprestimo', 'action' => 'index'), '', true); ?>">Empr&eacute;stimos</a></li>
+					<li><a href="<?php echo $this->url(array('controller' => 'usuario', 'action' => 'index'), '', true); ?>">Usu&aacute;rios</a></li>
+				</ul>
+			</div>
+			<div id="content"><!-- conteúdo -->
+				<?php $messages = $this->flashMessenger(); ?>
+				<?php if (sizeof($messages) > 0): ?>
+				<div id="message">
+					<?php echo $messages[0]; ?>
+				</div>
+				<?php endif; ?>
+				<?php echo $this->layout()->content; ?>
+			</div>
+		</div>
+	</body>
+</html>
