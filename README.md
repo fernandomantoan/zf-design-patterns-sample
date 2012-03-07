@@ -15,3 +15,7 @@ There are five design patterns implemented in the application code base:
 * Observer
 
 Besides that, there are also the design patterns included in Zend Framework code itself, but that was not included in the monograph focus.
+
+# To dos
+
+The code itself must be refactored to use the Zend Framework best practices and to use the english language in the application code base.
