@@ -3,7 +3,7 @@
 	{
 		public function init()
 		{
-			$this->facade = FactoryFacade::obterFacade(FactoryFacade::FACADE_AUTH);
+			$this->facade = FactoryFacade::createInstance(FactoryFacade::FACADE_AUTH);
 			$this->_helper->layout->disableLayout();
 		}
 	

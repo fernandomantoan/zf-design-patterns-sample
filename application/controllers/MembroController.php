@@ -9,7 +9,7 @@
 				$this->_redirect('/auth');
 			}
 			
-			$this->facade = FactoryFacade::obterFacade(FactoryFacade::FACADE_MEMBRO);
+			$this->facade = FactoryFacade::createInstance(FactoryFacade::FACADE_MEMBRO);
 		}
 		
 		public function indexAction()
