@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Implementation of the Factory design pattern, using a 
- * very simple approach. Creates a new Facade instance 
- * based on constants passed to createInstance.
+ * Implementation of the Factory design pattern, using a very simple approach. Creates a new Facade instance based on constants passed to createInstance.
+ * 
+ * TODO Refactor to use namespaces when ZF2 is released
  * 
  * @author fernando
  */
-class FactoryFacade
+class FernandoMantoan_DesignPatterns_Factory_FactoryFacade
 {
 	const FACADE_PUBLISHER = 1;
 	const FACADE_AUTHOR = 2;
@@ -21,25 +21,25 @@ class FactoryFacade
 	{
 		switch ($facade) {
 			case self::FACADE_PUBLISHER:
-				return new Biblioteca_Business_Facade_Editora();
+				return new Library_Business_Facade_Publisher();
 			break;
 			case self::FACADE_AUTHOR:
-				return new Biblioteca_Business_Facade_Autor();
+				return new Library_Business_Facade_Author();
 			break;
 			case self::FACADE_BOOK:
-				return new Biblioteca_Business_Facade_Livro();
+				return new Library_Business_Facade_Book();
 			break;
 			case self::FACADE_LOAN:
-				return new Biblioteca_Business_Facade_Emprestimo();
+				return new Library_Business_Facade_Loan();
 			break;
 			case self::FACADE_USER:
-				return new Biblioteca_Business_Facade_Usuario();
+				return new Library_Business_Facade_Usuario();
 			break;
 			case self::FACADE_MEMBER:
-				return new Biblioteca_Business_Facade_Membro();
+				return new Library_Business_Facade_Member();
 			break;
 			case self::FACADE_AUTH:
-				return new Biblioteca_Business_Facade_Auth();
+				return new Library_Business_Facade_Auth();
 			break;
 			default:
 				throw new Exception('The facade specified is invalid.');

@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS `monografia_biblioteca`;
-CREATE DATABASE `monografia_biblioteca` CHARSET=UTF8;
-USE `monografia_biblioteca`;
+--DROP DATABASE IF EXISTS `zf_designpatterns`;
+--CREATE DATABASE `zf_designpatterns` CHARSET=UTF8;
+USE `zf_designpatterns`;
 -- Editoras
 CREATE TABLE `editora`(
 	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,

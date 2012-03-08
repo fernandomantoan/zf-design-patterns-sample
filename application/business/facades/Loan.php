@@ -1,13 +1,13 @@
 <?php
-	class Biblioteca_Business_Facade_Emprestimo
+	class Library_Business_Facade_Loan
 	{
 		protected $_mapper;
 		protected $_mapperItem;
 		
 		public function __construct()
 		{
-			$this->_mapper = new Biblioteca_Business_DataMapper_Emprestimo();
-			$this->_mapperItem = new Biblioteca_Business_DataMapper_ItemEmprestimo();
+			$this->_mapper = new Library_Business_DataMapper_Loan();
+			$this->_mapperItem = new Library_Business_DataMapper_LoanItem();
 		}
 		
 		public function listBusiness()

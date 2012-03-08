@@ -1,5 +1,5 @@
 <?php
-	class Biblioteca_Form_Autor extends Zend_Form
+	class Library_Form_Autor extends Zend_Form
 	{
 		public function init()
 		{

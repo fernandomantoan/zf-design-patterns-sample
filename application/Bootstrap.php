@@ -1,13 +1,11 @@
 <?php
-require_once 'FactoryFacade.php';
-
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
 	protected function _initAutoload()
 	{
 		$autoloader = new Zend_Application_Module_Autoloader(array(
 			'basePath' => dirname(__FILE__),
-			'namespace' => 'Biblioteca_'
+			'namespace' => 'Library_'
 		));
 		$autoloader->removeResourceType('dbtable');
 		$autoloader->removeResourceType('model');

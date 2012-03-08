@@ -19,3 +19,7 @@ Besides that, there are also the design patterns included in Zend Framework code
 # To dos
 
 The code itself must be refactored to use the Zend Framework best practices and to use the english language in the application code base.
+
+# Monograph
+
+The written monograph can be download in slideshare: http://www.slideshare.net/fernandouhu/proposta-de-arquitetura-de-desenvolvimentoitetura-de-desenvolvimento-web-baseada-em-php-utilizando-design-patterns-um-estudo-de-caso 
