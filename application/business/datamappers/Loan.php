@@ -59,8 +59,8 @@ class Library_Business_DataMapper_Loan
 				return $data;
 			}
 			
-			$model = new Biblioteca_Business_Model_Emprestimo();
-			$model_membro = new Biblioteca_Business_Model_Membro();
+			$model = new Library_Business_Model_Loan();
+			$model_membro = new Library_Business_Model_Member();
 			$model_membro->setId($membro['id'])
 							->setEndereco($membro['endereco'])
 							->setNome($membro['nome'])
@@ -81,10 +81,10 @@ class Library_Business_DataMapper_Loan
 		$entries = array();
 		foreach ($rs as $row)
 		{
-			$model = new Biblioteca_Business_Model_Emprestimo();
+			$model = new Library_Business_Model_Loan();
 			
 			$membro = $row->findParentRow('Library_Business_DbTable_Member');
-			$membro_model = new Biblioteca_Business_Model_Membro();
+			$membro_model = new Library_Business_Model_Member();
 			$membro_model->setId($membro->id)
 							->setNome($membro->nome)
 							->setEndereco($membro->endereco)

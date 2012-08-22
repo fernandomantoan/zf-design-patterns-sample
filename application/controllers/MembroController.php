@@ -1,100 +1,100 @@
 <?php
-	class MembroController extends Zend_Controller_Action
+
+class MembroController extends Zend_Controller_Action
+{
+	public function init()
 	{
-		
-		public function init()
+		if (!Zend_Auth::getInstance()->hasIdentity())
 		{
-			if (!Zend_Auth::getInstance()->hasIdentity())
-			{
-				$this->_redirect('/auth');
-			}
-			
-			$this->facade = FactoryFacade::createInstance(FactoryFacade::FACADE_MEMBRO);
+			$this->_redirect('/auth');
 		}
 		
-		public function indexAction()
-		{
-			$this->view->headTitle('Membros', 'PREPEND');
-			$this->view->membros = $this->facade->listBusiness();
-		}
+		$this->facade = FernandoMantoan_DesignPatterns_Factory_FactoryFacade::createInstance(FernandoMantoan_DesignPatterns_Factory_FactoryFacade::FACADE_MEMBER);
+	}
+	
+	public function indexAction()
+	{
+		$this->view->headTitle('Membros', 'PREPEND');
+		$this->view->membros = $this->facade->listBusiness();
+	}
+	
+	public function adicionarAction()
+	{
+		$this->view->headTitle('Novo Membro', 'PREPEND');
 		
-		public function adicionarAction()
-		{
-			$this->view->headTitle('Novo Membro', 'PREPEND');
-			
-			$form = new Biblioteca_Form_Membro();
-			$this->view->form = $form;
-			
-			if ($this->getRequest()->isPost())
-			{
-				$data = $this->getRequest()->getPost();
-				if ($this->facade->addBusiness($data, $form))
-				{
-					$this->_helper->FlashMessenger('Membro cadastrado com sucesso!');
-					$this->_redirect('/membro');
-				}
-				else
-				{
-					$form->populate($data);
-				}
-			}
-		}
+		$form = new Library_Form_Member();
+		$this->view->form = $form;
 		
-		public function editarAction()
+		if ($this->getRequest()->isPost())
 		{
-			$this->view->headTitle('Editar Membro', 'PREPEND');
-			
-			$form = new Biblioteca_Form_Membro();
-			$this->view->form = $form;
-			
-			if ($this->getRequest()->isPost())
+			$data = $this->getRequest()->getPost();
+			if ($this->facade->addBusiness($data, $form))
 			{
-				$data = $this->getRequest()->getPost();
-				if ($this->facade->editBusiness($data, $form))
-				{
-					$this->_helper->FlashMessenger('Membro atualizado com sucesso!');
-					$this->_redirect('/membro');
-				}
-				else
-				{
-					$form->populate($data);
-				}
+				$this->_helper->FlashMessenger('Membro cadastrado com sucesso!');
+				$this->_redirect('/membro');
 			}
 			else
 			{
-				$id = $this->_getParam('id', 0);
-				if (!$data = $this->facade->viewBusiness($id, true))
-				{
-					$this->_redirect('/membro');
-				}
-				else
-				{
-					$form->populate($data);
-				}
+				$form->populate($data);
 			}
 		}
+	}
+	
+	public function editarAction()
+	{
+		$this->view->headTitle('Editar Membro', 'PREPEND');
 		
-		public function deletarAction()
+		$form = new Library_Form_Member();
+		$this->view->form = $form;
+		
+		if ($this->getRequest()->isPost())
 		{
-			if ($this->facade->deleteBusiness($this->_getParam('id')))
+			$data = $this->getRequest()->getPost();
+			if ($this->facade->editBusiness($data, $form))
 			{
-				$this->_helper->FlashMessenger('Membro excluído com sucesso!');
+				$this->_helper->FlashMessenger('Membro atualizado com sucesso!');
+				$this->_redirect('/membro');
 			}
-			$this->_redirect('/membro');
+			else
+			{
+				$form->populate($data);
+			}
 		}
-		
-		public function visualizarAction()
+		else
 		{
-			$this->view->headTitle('Visualizar Membro', 'PREPEND');
-			
 			$id = $this->_getParam('id', 0);
-			if (!$data = $this->facade->viewBusiness($id))
+			if (!$data = $this->facade->viewBusiness($id, true))
 			{
 				$this->_redirect('/membro');
 			}
 			else
 			{
-				$this->view->membro = $data;
+				$form->populate($data);
 			}
 		}
 	}
+	
+	public function deletarAction()
+	{
+		if ($this->facade->deleteBusiness($this->_getParam('id')))
+		{
+			$this->_helper->FlashMessenger('Membro excluído com sucesso!');
+		}
+		$this->_redirect('/membro');
+	}
+	
+	public function visualizarAction()
+	{
+		$this->view->headTitle('Visualizar Membro', 'PREPEND');
+		
+		$id = $this->_getParam('id', 0);
+		if (!$data = $this->facade->viewBusiness($id))
+		{
+			$this->_redirect('/membro');
+		}
+		else
+		{
+			$this->view->membro = $data;
+		}
+	}
+}

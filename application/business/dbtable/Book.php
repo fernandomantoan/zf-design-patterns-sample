@@ -7,12 +7,12 @@ class Library_Business_DbTable_Book extends Zend_Db_Table_Abstract
 	protected $_referenceMap = array(
 		'Autor' => array(
 			'columns' => array('autor_id'),
-			'refTableClass' => 'Biblioteca_Business_DbTable_Autor',
+			'refTableClass' => 'Library_Business_DbTable_Author',
 			'refColumns' => 'id'
 		),
 		'Editora' => array(
 			'columns' => array('editora_id'),
-			'refTableClass' => 'Biblioteca_Business_DbTable_Editora',
+			'refTableClass' => 'Library_Business_DbTable_Publisher',
 			'refColumns' => 'id'
 		),
 	);

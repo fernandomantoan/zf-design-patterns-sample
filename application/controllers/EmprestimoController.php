@@ -2,7 +2,6 @@
 
 class EmprestimoController extends Zend_Controller_Action
 {
-
 	public function init()
 	{
 		if (!Zend_Auth::getInstance()->hasIdentity())
@@ -21,7 +20,7 @@ class EmprestimoController extends Zend_Controller_Action
 	{
 		$this->view->headTitle('Novo Empréstimo', 'PREPEND');
 
-		$form = new Biblioteca_Form_Emprestimo();
+		$form = new Library_Form_Loan();
 		$this->view->form = $form;
 
 		if ($this->getRequest()->isPost()) {
@@ -43,7 +42,7 @@ class EmprestimoController extends Zend_Controller_Action
 
 		$id = $this->_getParam('id', 0);
 
-		$form = new Biblioteca_Form_ItemEmprestimo();
+		$form = new Library_Form_LoanItem();
 		$form->getElement('emprestimo_id')->setValue($id);
 		$this->view->form = $form;
 
@@ -94,7 +93,7 @@ class EmprestimoController extends Zend_Controller_Action
 			if (!is_null($data->getDataDevolvida())) {
 				$this->_redirect('/emprestimo');
 			}
-			$form = new Biblioteca_Form_DevolverItem();
+			$form = new Library_Form_LoanReturnItem();
 			$form->getElement('id')->setValue($id);
 			$this->view->form = $form;
 			$this->view->item = $data;
@@ -127,7 +126,8 @@ class EmprestimoController extends Zend_Controller_Action
 		if (is_numeric(
 				$data = $this->facade
 						->calculaJurosBusiness($id, $data_devolucao))) {
-			echo "{'valor':'" . number_format($data, 2) . "'}";
+			$locale = new Zend_Locale('pt_BR');
+			echo "{'valor':'" . Zend_Locale_Format::getFloat($data, array('locale' => $locale, 'precision' => 1)) . "'}";
 		} else {
 			echo "{'valor':''}";
 		}

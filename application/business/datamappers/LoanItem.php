@@ -58,23 +58,23 @@ class Library_Business_DataMapper_LoanItem
 			if ($array)
 				return $data;
 			
-			$livro_model = new Biblioteca_Business_Model_Livro();
+			$livro_model = new Library_Business_Model_Book();
 			$livro_model->setIsbn($livro['isbn'])
 							->setTitulo($livro['titulo']);
 			
-			$membro_model = new Biblioteca_Business_Model_Membro();
+			$membro_model = new Library_Business_Model_Member();
 			$membro_model->setId($membro['id'])
 							->setNome($membro['nome'])
 							->setEndereco($membro['endereco'])
 							->setTelefone($membro['telefone']);
 			
-			$emprestimo_model = new Biblioteca_Business_Model_Emprestimo();
+			$emprestimo_model = new Library_Business_Model_Loan();
 			$emprestimo_model->setId($emprestimo['id'])
 								->setDataEmprestimo($emprestimo['data_emprestimo'])
 								->setValorJuros($emprestimo['valor_juros'])
 								->setMembro($membro_model);
 			
-			$model = new Biblioteca_Business_Model_ItemEmprestimo();
+			$model = new Library_Business_Model_LoanItem();
 			$model->setId($data['id'])
 					->setDataDevolvida($data['data_devolvida'])
 					->setDataPrevista($data['data_prevista'])
@@ -91,7 +91,7 @@ class Library_Business_DataMapper_LoanItem
 	{
 		$row = $this->getDbTable()->fetchRow("livro_isbn = '$isbn'");
 		if ($row) {
-			$model = new Biblioteca_Business_Model_ItemEmprestimo();
+			$model = new Library_Business_Model_LoanItem();
 			$model->setId($row->id)
 					->setDataDevolvida($row->data_devolvida)
 					->setDataPrevista($row->data_prevista)
@@ -107,10 +107,10 @@ class Library_Business_DataMapper_LoanItem
 		$rs = $this->getDbTable()->fetchAll('emprestimo_id = ' . (int) $emprestimo_id);
 		$entries = array();
 		foreach ($rs as $row) {
-			$model = new Biblioteca_Business_Model_ItemEmprestimo();
+			$model = new Library_Business_Model_LoanItem();
 			
 			$livro = $row->findParentRow('Library_Business_DbTable_Book');
-			$livro_model = new Biblioteca_Business_Model_Livro();
+			$livro_model = new Library_Business_Model_Book();
 			$livro_model->setIsbn($livro->isbn)
 							->setTitulo($livro->titulo);
 			

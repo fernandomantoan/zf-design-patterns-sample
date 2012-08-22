@@ -33,7 +33,7 @@ class FernandoMantoan_DesignPatterns_Factory_FactoryFacade
 				return new Library_Business_Facade_Loan();
 			break;
 			case self::FACADE_USER:
-				return new Library_Business_Facade_Usuario();
+				return new Library_Business_Facade_User();
 			break;
 			case self::FACADE_MEMBER:
 				return new Library_Business_Facade_Member();
